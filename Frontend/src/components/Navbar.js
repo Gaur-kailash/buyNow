@@ -20,9 +20,9 @@ function Navbar() {
         <li className="nav-item">
           <Link className="nav-link active" aria-current="page" to="/">Home</Link>
         </li>
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <Link className="nav-link" to="/">Link</Link>
-        </li>
+        </li> */}
         <li className="nav-item dropdown">
           <Link className="nav-link dropdown-toggle" to="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Category
@@ -40,7 +40,7 @@ function Navbar() {
         <Link to="/login" className="btn btn-success mx-2">LogIn</Link>
         <Link to="/signup" className="btn btn-outline-danger mx-2">Sign Up</Link>
       </div>:<div className="d-flex">
-        <Link to="/" className="btn btn-success mx-2">My Cart</Link>
+        <Link to="/mycart" className="btn btn-success mx-2">My Cart</Link>
         <button onClick={handleLogout} className="btn btn-outline-danger mx-2">Log out</button>
       </div>}
     </div>

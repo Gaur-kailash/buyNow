@@ -86,6 +86,27 @@ function Category(props) {
         }));
       }
     }
+
+    function addToCart(product){
+      if(!localStorage.getItem("userId")){
+        alert("Do Log in first")
+        return
+      }
+      let userID = localStorage.getItem("userId");
+      let id = product.id;
+      let itemCount = noOfItem[product.id];
+      let productTitle = product.title;
+      let productPrice = product.price;
+      let productImage = product.images[0];
+  
+      fetch("http://localhost:5000/cart",{
+        method:'POST',
+        headers:{
+          'Content-Type': "application/json"
+        },
+        body: JSON.stringify({userID,id,itemCount,productTitle,productImage,productPrice})
+      }).then(console.info("Data added to cart")).catch((err)=>{console.warn(err)})
+    }
   
     useEffect(() => {
       handleDummy();
@@ -136,9 +157,9 @@ function Category(props) {
                             +
                           </button>
                         </div>
-                        <a className="btn btn-success" style={{ width: "60%" }}>
+                        <button onClick={()=>{addToCart(e)}}  className="btn btn-success" style={{ width: "60%" }}>
                           Add To card
-                        </a>
+                        </button>
                       </div>
                     </div>
                   </div>

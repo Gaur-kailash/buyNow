@@ -11,7 +11,7 @@ function Home() {
   const initialQuantityState = {};
 
   const handleDummy = async () => {
-    const fetchedProducts = await fetch("https://dummyjson.com/products?limit=9");
+    try{const fetchedProducts = await fetch("https://dummyjson.com/products?limit=9");
     const data = await fetchedProducts.json();
     console.log(data);
     setProducts(data.products);
@@ -25,7 +25,11 @@ function Home() {
     setFlag(true);
     setTimeout(()=>
       console.log(noOfItem),2000)
-  };
+  }
+  catch(e){
+    console.log(e);
+  }
+  }
 
   const handlePrevious = async () => {
     if (skip > 0) {
@@ -87,6 +91,27 @@ function Home() {
     }
   }
 
+  function addToCart(product){
+    if(!localStorage.getItem("userId")){
+      alert("Do Log in first")
+      return
+    }
+    let userID = localStorage.getItem("userId");
+    let id = product.id;
+    let itemCount = noOfItem[product.id];
+    let productTitle = product.title;
+    let productPrice = product.price;
+    let productImage = product.images[0];
+
+    fetch("http://localhost:5000/cart",{
+      method:'POST',
+      headers:{
+        'Content-Type': "application/json"
+      },
+      body: JSON.stringify({userID,id,itemCount,productTitle,productImage,productPrice})
+    }).then(console.info("Data added to cart")).catch((err)=>{console.warn(err)})
+  }
+
   useEffect(() => {
     handleDummy();
   }, []);
@@ -136,9 +161,9 @@ function Home() {
                           +
                         </button>
                       </div>
-                      <a className="btn btn-success" style={{ width: "60%" }}>
+                      <button onClick={()=>{addToCart(e)}} className="btn btn-success" style={{ width: "60%" }}>
                         Add To card
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </div>

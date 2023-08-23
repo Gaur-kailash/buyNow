@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
-const dbUrl = 'mongodb+srv://gaur_Kailash:%40%40kanhagaur%40%40@cluster0.gjqutug.mongodb.net/Ecom?retryWrites=true&w=majority';
+const dbUrl = process.env.DB_URL;
 
 const connectionOptions = {
     useNewUrlParser : true,

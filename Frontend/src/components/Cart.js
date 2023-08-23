@@ -134,8 +134,9 @@ function Cart() {
               </div>
             ))}
           </div>
-        ) : (
-          <div>No Products</div>
+        ) : (<div class="spinner-border text-success my-3" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
         )}
       </div>
       <div className="bg-dark py-4">

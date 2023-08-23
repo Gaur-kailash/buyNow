@@ -3,6 +3,11 @@ body{
   padding: 0%;
 }
 
+/* NavBar  */
+.item-hover:hover{
+  background-color: #414141;
+}
+
 /* Carousel  */
 .custom-img-height{
   height: 85vh;

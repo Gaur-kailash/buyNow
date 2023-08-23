@@ -166,7 +166,9 @@ function Category(props) {
                 ))}
               </div>
             ) : (
-              <div>No Products</div>
+              <div className="spinner-border text-success my-3" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
             )}
           </div>
           <div className="container d-flex justify-content-between">

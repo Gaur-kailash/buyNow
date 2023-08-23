@@ -6,6 +6,7 @@ import SignUp from "./components/SignUp";
 import Home from "./components/Home";
 import Category from "./components/Category";
 import Cart from "./components/Cart";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/login" element={<Login/>}/>
       <Route path="/signup" element={<SignUp/>}/>
       <Route path="/myCart" element={<Cart/>}/>
+      <Route path="/profile" element={<Profile/>}/>
     </Routes>
     </BrowserRouter>
     </>

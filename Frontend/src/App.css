@@ -27,6 +27,22 @@ body{
   box-shadow: none;
 }
 
+.custom-width{
+  width: 60%;
+}
+
+@media (max-width: 768px) {
+  .custom-width{
+    width: 100%;
+  }
+  .custom-padding{
+    padding: 10px 8px !important;
+  }
+  .custom-btn-padding{
+    padding: 5px ;
+  }
+}
+
 /* Remove increase and decrease arrows for number input */
 .no-spinners::-webkit-inner-spin-button,
 .no-spinners::-webkit-outer-spin-button {

@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import { useParams } from 'react-router-dom';
-import Carousel from './Carousel';
-import Footer from './Footer';
+import Carousel from '../components/Carousel';
+import Footer from '../components/Footer';
 function Category(props) {
     const [products, setProducts] = useState([]);
     const [flag, setFlag] = useState(false);

@@ -82,7 +82,7 @@ function SignUp() {
 
   return (
     <div className="container">
-      <div className="bg-dark text-light py-4 px-5 my-4 mx-auto rounded-3" style={{"width":"60%"}}>
+      <div className="bg-dark text-light py-4 px-5 my-4 mx-auto rounded-3 custom-width custom-padding">
         <h3 className="mb-4">Register Here</h3>
         <div style={{"textAlign":"left"}} className="mb-3">
           <label htmlFor="exampleInputName" className="form-label">
@@ -109,7 +109,7 @@ function SignUp() {
             onChange={(e)=>{setEmail(e.target.value)}}
             aria-describedby="emailHelp"
           />
-          <button className="btn btn-primary custom-left-border" onClick={getVerified}>Verify</button>
+          <button className="btn btn-primary custom-left-border custom-btn-padding" onClick={getVerified}>Verify</button>
           </div>
           {validationFlag?<div id="emailMsg">{emailConfirmation}</div>:<div id="emailMsg">{emailConfirmation}</div>}
         </div>

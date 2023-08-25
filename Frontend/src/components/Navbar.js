@@ -118,9 +118,7 @@ function Navbar() {
                     <hr className="dropdown-divider" />
                   </li>
                   <li>
-                    <Link className="dropdown-item text-light bg-dark" to="/">
-                      Logout
-                    </Link>
+                  <button onClick={handleLogout} className="btn btn-outline-danger mx-2">Log out</button>
                   </li>
                 </ul>
               </div>

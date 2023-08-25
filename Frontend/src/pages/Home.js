@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Carousel from "./Carousel";
-import Footer from "./Footer";
+import Carousel from "../components/Carousel";
+import Footer from "../components/Footer";
 
 function Home() {
   const [products, setProducts] = useState([]);
@@ -199,8 +199,8 @@ function Home() {
               ))}
             </div>
           ) : (
-            <div class="spinner-border text-success my-3" role="status">
-              <span class="visually-hidden">Loading...</span>
+            <div className="spinner-border text-success my-3" role="status">
+              <span className="visually-hidden">Loading...</span>
             </div>
           )}
         </div>

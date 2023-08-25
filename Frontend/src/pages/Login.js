@@ -16,6 +16,7 @@ function Login() {
       body : JSON.stringify({email:email,password:pass})
     })
     response = await response.json();
+    console.log(response);
     if(response.errors){
       console.log(response.errors);
     }else{
@@ -27,7 +28,7 @@ function Login() {
 
   return (
     <div className="container">
-      <form className="bg-dark text-light py-4 px-5 my-4 mx-auto rounded-3" style={{"width":"60%"}} onSubmit={onLogin}>
+      <form className="bg-dark text-light py-4 px-5 my-4 mx-auto rounded-3 custom-width custom-padding"  onSubmit={onLogin}>
         <h3 className="mb-4">Login Here</h3>
         <div style={{"textAlign":"left"}} className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">

@@ -16,7 +16,7 @@ cartRouter.post("/cart",async (req,res)=>{
     let result = await cartItem.save();
     res.send(result);}
 })
-cartRouter.get("/cart", async (req,res)=>{
+cartRouter.post("/getcart", async (req,res)=>{
     let result = await cart.find(req.body);
     console.log(result);
     res.send(result);

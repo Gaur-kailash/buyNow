@@ -12,11 +12,15 @@ router.post("/login",
 ,async (req,res)=>{
     const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
+    return res.send({ errors: errors.array() });
   }
     let User = await user.findOne({email:req.body.email,password:req.body.password});
     console.log(User);
-    res.send(User);
+    if(User==null)
+    return res.send({errors:"Not Define"})
+  else{
+    return res.send(User);
+  }
 })
 
 module.exports = router;

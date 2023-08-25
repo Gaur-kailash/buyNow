@@ -1,13 +1,22 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Cart() {
+  const navigate = useNavigate();
   let [cartData, setData] = useState([]);
   let [flag, setFlag] = useState(false);
   const [noOfItem, setItem] = useState({});
   const initialQuantityState = {};
 
   async function myCart() {
-    let response = await fetch("http://localhost:5000/cart");
+    const userId = localStorage.getItem("userId");
+    let response = await fetch("http://localhost:5000/getcart",{
+      method:'POST',
+      headers: {
+        'Content-Type':"application/json"
+      },
+      body: JSON.stringify({userID:userId})
+    });
     response = await response.json();
     setData(response);
     if (response.length > 0) {
@@ -171,7 +180,7 @@ function Cart() {
               </h4>
             </div>
           </div>
-          <div className="d-flex justify-content-end text-light py-1"><button className="btn btn-success">Place Order</button></div>
+          <div className="d-flex justify-content-end text-light py-1"><button className="btn btn-success" onClick={()=>navigate("/details")}>Place Order</button></div>
         </div>
       </div>
     </>

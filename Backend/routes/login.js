@@ -17,7 +17,7 @@ router.post("/login",
     let User = await user.findOne({email:req.body.email,password:req.body.password});
     console.log(User);
     if(User==null)
-    return res.send({errors:"Not Define"})
+    return res.send({errors:"Enter valid credentials "})
   else{
     return res.send(User);
   }

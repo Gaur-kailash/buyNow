@@ -27,8 +27,8 @@ router.post(
   async (req, res) => {
     let userMAil = req.body.email;
     let otp;
-    console.log(userMAil);
     const errors = validationResult(req);
+    console.log(userMAil);
     if (await user.findOne({ email: userMAil })) {
       let msg = { msg: "User Already Exists" };
       errors.errors.push(msg);
@@ -70,6 +70,13 @@ router.post(
     const errors = validationResult(req);
     let userMail = req.body.email;
     console.log(otps);
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+    const isValidPassword = passwordRegex.test(req.body.password);
+    if (!isValidPassword) {
+      let msg = { msg: "Enter valid password" };
+      errors.errors.push(msg);
+      return res.status(400).json({ errors: errors.array() })
+  }
     if (!errors.isEmpty() || req.body.otp != otps[userMail]) {
       if (req.body.otp != otps[userMail]) {
         let msg = { msg: "Enter correct OTP" };

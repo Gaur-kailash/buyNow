@@ -5,6 +5,7 @@ import {useNavigate} from "react-router-dom"
 function Login() {
   let [email,setEmail]= useState("");
   let [pass,setPass]= useState("");
+  let [err,setErr]= useState(false);
   let navigate = useNavigate();
   async function onLogin(e){
     e.preventDefault();
@@ -18,7 +19,7 @@ function Login() {
     response = await response.json();
     console.log(response);
     if(response.errors){
-      console.log(response.errors);
+      setErr(true);
     }else{
     console.log(response._id);
     localStorage.setItem("userId",response._id);
@@ -58,6 +59,7 @@ function Login() {
             onChange={(e)=>{setPass(e.target.value)}}
           />
         </div>
+        {err?<p className="text-danger">Enter valid credentials</p>:""}
         <div className="text-center">
           <button type="submit" className="btn btn-success">
             Login

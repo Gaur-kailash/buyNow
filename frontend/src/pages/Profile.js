@@ -14,7 +14,7 @@ function Profile() {
 
   async function onLoad() {
     let id = localStorage.getItem("userId");
-    let response = await fetch("http://localhost:5000/getProfile", {
+    let response = await fetch("https://buynow-3o97.onrender.com/getProfile", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -35,7 +35,7 @@ function Profile() {
 
   function handleOnSubmit(e) {
     e.preventDefault();
-    fetch("http://localhost:5000/profile", {
+    fetch("https://buynow-3o97.onrender.com/profile", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

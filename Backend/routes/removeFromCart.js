@@ -6,7 +6,7 @@ removeRouter.post("/remove",async (req,res)=>{
     let userId = req.body.id;
     let result = await cartItem.deleteOne({id:userId});
     if(result.deletedCount>=1){
-        console.log("Item Deleted");
+        res.send(result);
     }
     else{
         console.log("Not Deleted");

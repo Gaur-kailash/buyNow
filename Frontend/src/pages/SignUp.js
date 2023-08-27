@@ -14,7 +14,7 @@ function SignUp() {
   let navigate = useNavigate();
 
   let onRegister = async () => {
-    let response = await fetch("http://localhost:5000/register", {
+    let response = await fetch(`https://buynow-3o97.onrender.com/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

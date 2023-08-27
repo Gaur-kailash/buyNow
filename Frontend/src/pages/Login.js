@@ -9,7 +9,7 @@ function Login() {
   let navigate = useNavigate();
   async function onLogin(e){
     e.preventDefault();
-    let response = await fetch("http://localhost:5000/login",{
+    let response = await fetch(`https://buynow-3o97.onrender.com/login`,{
       method:'POST',
       headers:{
         'Content-Type':"application/json"

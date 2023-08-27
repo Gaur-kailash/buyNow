@@ -107,7 +107,7 @@ function Home() {
     let productPrice = product.price;
     let productImage = product.images[0];
 
-    fetch("http://localhost:5000/cart", {
+    fetch("https://buynow-3o97.onrender.com/cart", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

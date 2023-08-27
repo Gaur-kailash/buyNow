@@ -10,7 +10,7 @@ function Cart() {
 
   async function myCart() {
     const userId = localStorage.getItem("userId");
-    let response = await fetch("http://localhost:5000/getcart",{
+    let response = await fetch(`https://buynow-3o97.onrender.com/getcart`,{
       method:'POST',
       headers: {
         'Content-Type':"application/json"
@@ -21,9 +21,9 @@ function Cart() {
     setData(response);
     if (response.length > 0) {
       //   Initialize the quantity state for each product
-      cartData.map((product) => {
-        initialQuantityState[product.id] = product.itemCount;
-      });
+      cartData.map((product) => (
+        initialQuantityState[product.id] = product.itemCount
+      ));
       setItem(initialQuantityState);
       setFlag(true);
     } else {
@@ -55,14 +55,16 @@ function Cart() {
     }
   }
   function removeFromCart(productId) {
-    fetch("http://localhost:5000/remove", {
+    fetch("https://buynow-3o97.onrender.com/remove", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ id: productId }),
     })
-      .then(myCart())
+      .then(()=>{
+        myCart()
+      console.log("delted")})
       .catch((err) => {
         console.log(err);
       });
@@ -143,8 +145,8 @@ function Cart() {
               </div>
             ))}
           </div>
-        ) : (<div class="spinner-border text-success my-3" role="status">
-        <span class="visually-hidden">Loading...</span>
+        ) : (<div className="spinner-border text-success my-3" role="status">
+        <span className="visually-hidden">Loading...</span>
       </div>
         )}
       </div>
@@ -152,8 +154,8 @@ function Cart() {
         <div className="container">
         <h3 className="text-start text-light border-bottom">Price Preview </h3>
           {flag ? (
-            cartData.map((element) => (
-              <div className="d-flex justify-content-between text-light">
+            cartData.map((element,id) => (
+              <div key={id} className="d-flex justify-content-between text-light">
                 <div>
                   <b>
                     {element.productTitle} * {noOfItem[element.id]}

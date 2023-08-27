@@ -50,7 +50,7 @@ function SignUp() {
   let getVerified = async () => {
     setValidataionFlag(false);
     setEmailConfirmation("Mail is going");
-    let response = await fetch("http://localhost:5000/mail", {
+    let response = await fetch("https://buynow-3o97.onrender.com/mail", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
